@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card } from '../../components/Card'
+import data from '../../stays.json'
 
 export const CardContainer = () => {
   return (
@@ -7,7 +8,7 @@ export const CardContainer = () => {
       <h1>Stays in Finland</h1>
       <span>12+ days</span>
       {
-        [1, 2, 3].map(card => <Card />)
+        data.map((listing, index) => <Card key={index} {...listing} />)
       }
     </div>
   )

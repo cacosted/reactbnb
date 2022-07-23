@@ -1,19 +1,26 @@
 import React from 'react'
 
-export const Card = () => {
+export const Card = ({
+  superHost,
+  title,
+  rating,
+  beds,
+  photo
+}) => {
+  // console.log(listing)
   return (
     <article>
       <picture>
-        <img src='' alt='Something' />
+        <img src={photo} alt={title} />
       </picture>
       <div className='Card-details'>
-        <span>Super Host</span>
-        <p>Entire apartment. 2 beds</p>
+        {superHost && <span>Super Host</span>}
+        <p>{title}</p>
         <div className='Card-rating'>
           <img src='' alt='Star' />
-          <span>4.40</span>
+          <span>{rating}</span>
         </div>
-        <p>Stylist apartment in center of the city</p>
+        <p>{title}.{beds}</p>
       </div>
     </article>
   )
