@@ -1,0 +1,35 @@
+.App {
+  padding: 1em;
+}
+
+.CardContainer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Card {
+  max-width: 400px;
+}
+
+.Card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Card-title {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.Card-img {
+  border-radius: 24px;
+}
+
+.Card-badge {
+  border: 2px solid black;
+  border-radius: 50px;
+  padding: .2em .5em 
+}
