@@ -1,6 +1,7 @@
 :root {
   --light-font: 'Mulish', sans-serif;
   --regular-font: 'Montserrat', sans-serif;
+  --card-size: 500px
 }
 
 *,

@@ -1,9 +1,10 @@
 import React from 'react'
 import logo from '../../assets/logo.svg'
 import { FaSearch } from 'react-icons/fa'
+
 const NavBar = ({ children }) => {
   return (
-    <nav>
+    <nav className='Header-navbar'>
       {children}
     </nav>
   )

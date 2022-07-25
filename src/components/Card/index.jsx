@@ -22,7 +22,7 @@ export const Card = ({
         <header className='Card-header'>
           <div className='Card-title'>
             {superHost && <Span>Super Host</Span>}
-            <h2>{type}</h2>
+            <h2>{type} . {beds} Beds</h2>
           </div>
 
           <div className='Card-rating'>
@@ -30,7 +30,7 @@ export const Card = ({
             <span>{rating}</span>
           </div>
         </header>
-        <p>{title}. {beds} Beds</p>
+        <p className='Card-text'>{title}</p>
 
       </div>
     </article>
