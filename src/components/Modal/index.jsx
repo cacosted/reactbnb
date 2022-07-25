@@ -1,5 +1,13 @@
 import React from 'react'
+import { SearchBar } from '../SearchBar'
 
 export const Modal = () => {
-  return <h1>Modal</h1>
+  return (
+    <aside className='Modal'>
+      <div className='Modal-content'>
+        <h1 className='Modal-title'>Modal title</h1>
+        <SearchBar />
+      </div>
+    </aside>
+  )
 }
