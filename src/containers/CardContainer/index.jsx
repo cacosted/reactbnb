@@ -4,7 +4,6 @@ import data from '../../stays.json'
 
 export const CardContainer = () => {
   const { country } = data
-  console.log(data)
   return (
     <section className='CardContainer'>
       <header className='CardContainer-header'>

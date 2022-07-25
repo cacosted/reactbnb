@@ -11,7 +11,6 @@ export const Card = ({
   beds,
   photo
 }) => {
-  // console.log(listing)
   return (
     <article className='Card'>
       <picture className='Card-picture'>

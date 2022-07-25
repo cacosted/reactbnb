@@ -15,7 +15,7 @@ export const Header = () => {
   return (
     <NavBar>
       <Logo />
-      <SearchBar />
+      <SearchBar type='header' />
     </NavBar>
   )
 }

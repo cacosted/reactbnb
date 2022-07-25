@@ -6,7 +6,7 @@ export const Modal = () => {
     <aside className='Modal'>
       <div className='Modal-content'>
         <h1 className='Modal-title'>Modal title</h1>
-        <SearchBar />
+        <SearchBar type='modal' />
       </div>
     </aside>
   )
