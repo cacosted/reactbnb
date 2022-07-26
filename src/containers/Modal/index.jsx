@@ -1,5 +1,6 @@
 import React from 'react'
-import { SearchBar } from '../SearchBar'
+import { SearchBar } from '../../components/SearchBar'
+import { FilterList } from '../FilterList'
 
 export const Modal = () => {
   return (
@@ -7,6 +8,7 @@ export const Modal = () => {
       <div className='Modal-content'>
         <h1 className='Modal-title'>Modal title</h1>
         <SearchBar type='modal' />
+        <FilterList />
       </div>
     </aside>
   )

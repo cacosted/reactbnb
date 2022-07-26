@@ -96,6 +96,22 @@
   opacity: .3;
 }
 
+.Modal {
+  background-color: rgba(79, 79, 79, 0.4);
+  position: absolute;
+  inset: 0;
+}
+
+.Modal-title {
+  margin: 0;
+}
+
+.Modal-content {
+  padding: 2em;
+  background-color: #FFF;
+  min-height: 80%;
+  position: relative;
+}
 @media (min-width: 800px) {
 
   .App {
