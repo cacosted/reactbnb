@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../../assets/logo.svg'
-import { SearchBar } from '../../components/SearchBar'
+import { HeaderBar } from '../../components/HeaderBar'
 const NavBar = ({ children }) => {
   return (
     <nav className='Header-navbar'>
@@ -15,7 +15,7 @@ export const Header = () => {
   return (
     <NavBar>
       <Logo />
-      <SearchBar type='header' />
+      <HeaderBar />
     </NavBar>
   )
 }
