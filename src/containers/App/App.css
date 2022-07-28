@@ -125,6 +125,35 @@
   gap: 2em;
 }
 
+.GuestItem-header > * {
+  margin: 0;
+}
+
+.GuestItem-title {
+  font-size: 1rem;
+}
+
+.GuestItem-description {
+  opacity: .3;
+}
+
+.Counter {
+  margin-block: 1em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 1.1rem;
+  
+}
+
+.Counter button {
+  border-radius: 5px;
+  padding: .3em .5em;
+  font-size: 1.1rem;
+  background-color: #FFF;
+  border: 1px solid black;
+}
+
 /* -------------------------------- */
 @media (min-width: 800px) {
 
