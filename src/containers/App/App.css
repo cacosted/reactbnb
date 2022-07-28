@@ -105,7 +105,11 @@
 .Modal-title {
   margin: 0;
 }
-
+.Modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .Modal-content {
   padding: 2em;
   background-color: #FFF;
@@ -154,6 +158,43 @@
   border: 1px solid black;
 }
 
+.SearchBar {
+  display: flex;
+  flex-direction: column;
+  padding-block: .5em;
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+}
+
+.SearchBar-item {
+  padding-block-start: .5em;  
+}
+
+.SearchBar-title {
+  display: block;
+}
+.SearchBar-item + .SearchBar-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.1)
+} 
+.SearchBar-content {
+  width: 100%;
+  border: none;
+  padding-block: 1em;
+}
+
+.SearchBar-submit {
+  position: absolute;
+  bottom: 1em;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1em 2em;
+  color: #FFF;
+  background-color: #eb6565;
+  border: none;
+  border-radius: 15px;
+  display: flex;
+  gap: .5em
+}
 /* -------------------------------- */
 @media (min-width: 800px) {
 

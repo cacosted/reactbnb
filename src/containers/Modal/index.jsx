@@ -11,7 +11,10 @@ export const Modal = () => {
   return (
     <aside className='Modal'>
       <div className='Modal-content'>
-        <h1 className='Modal-title'>Modal title</h1>
+        <div className='Modal-header'>
+          <h1 className='Modal-title'>Edit your search</h1>
+          <button className='Modal-title'>x</button>
+        </div>
         <SearchBar />
         <div className='Modal-filters'>
 
