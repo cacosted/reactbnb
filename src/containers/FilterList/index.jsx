@@ -1,16 +1,9 @@
 import React from 'react'
 
-export const FilterList = () => {
+export const FilterList = ({ children }) => {
   return (
     <ul className='FilterList'>
-      {
-        [1, 2, 4].map(item => (
-          <li key={item}>
-            {item}
-          </li>
-        )
-        )
-      }
+      {children}
     </ul>
   )
 }

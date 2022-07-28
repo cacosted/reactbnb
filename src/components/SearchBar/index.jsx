@@ -4,7 +4,7 @@ import { FaSearch } from 'react-icons/fa'
 
 export const SearchBar = ({ type }) => {
   return (
-    <div className='Header-search'>
+    <div className='SearchBar-search'>
       <Button filter='location'>
         Helsinki, Finland
       </Button>

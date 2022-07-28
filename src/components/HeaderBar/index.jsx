@@ -3,7 +3,7 @@ import { Button } from '../Button'
 import { FaSearch } from 'react-icons/fa'
 
 export const HeaderBar = () => (
-  <div className='Header-search'>
+  <div className='HeaderBar-search'>
     <Button filter='location'>
       Helsinki, Finland
     </Button>

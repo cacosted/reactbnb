@@ -70,7 +70,7 @@
 
 }
 
-.Header-search {
+.HeaderBar-search {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,7 +98,7 @@
 
 .Modal {
   background-color: rgba(79, 79, 79, 0.4);
-  position: absolute;
+  position: fixed;
   inset: 0;
 }
 
@@ -112,6 +112,20 @@
   min-height: 80%;
   position: relative;
 }
+
+.FilterList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1em;
+}
+
+.LocationItem {
+  display: flex;
+  gap: 2em;
+}
+
+/* -------------------------------- */
 @media (min-width: 800px) {
 
   .App {
@@ -127,7 +141,7 @@
     margin-block-end: 0;
   }
   
-  .Header-search {
+  .HeaderBar-search {
     display: flex;
     justify-content: center;
     align-items: center;
