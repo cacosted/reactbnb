@@ -212,6 +212,7 @@
   .App {
     padding-inline: 5em;
   }
+
   .Header-navbar {
     display: flex;
     justify-content: space-between;
@@ -229,4 +230,18 @@
     width: max-content;
     margin: 0;
   } 
+
+  .SearchBar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .SearchBar-submit {
+    position: static;
+  }
+
+  .SearchBar-item + .SearchBar-item {
+    border-inline: 1px solid rgba(0, 0, 0, 0.1)
+  }
 }
