@@ -5,17 +5,18 @@ import { FilterList } from '../FilterList'
 import { LocationItem } from '../../components/LocationItem'
 import { GuestItem } from '../../components/GuestItem'
 import { FaRegTimesCircle } from 'react-icons/fa'
-export const Modal = () => {
-  const locations = data.slice(0, 4)
 
+export const Modal = ({ activeModal, setActiveModal }) => {
+  const locations = data.slice(0, 4)
+  const isActive = activeModal ? '' : 'hidden'
   return (
-    <aside className='Modal'>
+    <aside className={`Modal ${isActive}`}>
       <div className='Modal-content'>
         <div className='Modal-header'>
           <h1 className='Modal-title'>Edit your search</h1>
-          <FaRegTimesCircle className='Modal-close' />
+          <FaRegTimesCircle className='Modal-close' onClick={() => setActiveModal(false)} />
         </div>
-        <SearchBar />
+        <SearchBar setActiveModal={setActiveModal} />
         <div className='Modal-filters'>
 
           <FilterList>

@@ -206,6 +206,10 @@
   filter: brightness(95%);
 }
 
+.hidden {
+  display: none;
+}
+
 /* -------------------------------- */
 @media (min-width: 800px) {
 

@@ -2,8 +2,8 @@ import React from 'react'
 import { Button } from '../Button'
 import { FaSearch } from 'react-icons/fa'
 
-export const HeaderBar = () => (
-  <div className='HeaderBar-search'>
+export const HeaderBar = ({ setActiveModal }) => (
+  <div className='HeaderBar-search' onClick={() => setActiveModal(true)}>
     <Button filter='location'>
       Helsinki, Finland
     </Button>
