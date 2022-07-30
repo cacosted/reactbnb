@@ -4,7 +4,7 @@ import data from '../../stays.json'
 import { FilterList } from '../FilterList'
 import { LocationItem } from '../../components/LocationItem'
 import { GuestItem } from '../../components/GuestItem'
-
+import { FaRegTimesCircle } from 'react-icons/fa'
 export const Modal = () => {
   const locations = data.slice(0, 4)
 
@@ -13,7 +13,7 @@ export const Modal = () => {
       <div className='Modal-content'>
         <div className='Modal-header'>
           <h1 className='Modal-title'>Edit your search</h1>
-          <button className='Modal-title'>x</button>
+          <FaRegTimesCircle className='Modal-close' />
         </div>
         <SearchBar />
         <div className='Modal-filters'>

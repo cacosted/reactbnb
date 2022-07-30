@@ -105,6 +105,9 @@
 .Modal-title {
   margin: 0;
 }
+.Modal-close {
+  font-size: 2rem;
+}
 .Modal-header {
   display: flex;
   justify-content: space-between;
@@ -164,10 +167,12 @@
   padding-block: .5em;
   border-radius: 15px;
   box-shadow: 0 0 5px rgba(0, 0, 0, .1);
+  padding: 0;
+  margin-block: 2em;
 }
 
 .SearchBar-item {
-  padding-block-start: .5em;  
+  padding: 1em 2em;  
 }
 
 .SearchBar-title {
@@ -193,8 +198,14 @@
   border: none;
   border-radius: 15px;
   display: flex;
-  gap: .5em
+  gap: .5em;
+  font-size: 1rem;
 }
+
+.Counter-btn:active {
+  filter: brightness(95%);
+}
+
 /* -------------------------------- */
 @media (min-width: 800px) {
 

@@ -5,12 +5,12 @@ export const SearchBar = ({ type }) => {
     <form className='SearchBar'>
       <label className='SearchBar-item' htmlFor='location'>
         <span className='SearchBar-title'>Location</span>
-        <input id='location' className='SearchBar-content' type='text' placeholder='Helsinki, Finland' />
+        <input id='location' className='SearchBar-content' type='text' placeholder='Helsinki, Finland' readOnly />
       </label>
 
       <label className='SearchBar-item'>
         <span className='SearchBar-title'>Guests</span>
-        <input id='guest' className='SearchBar-content' type='text' placeholder='Add guests' />
+        <input id='guest' className='SearchBar-content' type='text' placeholder='Add guests' readOnly />
       </label>
       <button className='SearchBar-submit' type='submit'>
         <FaSearch />

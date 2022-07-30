@@ -9,9 +9,9 @@ export const GuestItem = ({ title, description }) => {
         <p className='GuestItem-description'>{description}</p>
       </header>
       <Counter>
-        <button>-</button>
+        <button className='Counter-btn'>-</button>
         <span>0</span>
-        <button>+</button>
+        <button className='Counter-btn'>+</button>
       </Counter>
     </li>
   )
