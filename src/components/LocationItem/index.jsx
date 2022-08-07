@@ -1,12 +1,16 @@
-import React from 'react'
 import { FaMapMarkerAlt } from 'react-icons/fa'
 
-export const LocationItem = ({ location }) => {
+export const LocationItem = ({ location, setSelectedLocation }) => {
+  const { city, country } = location
+
   return (
-    <li className='LocationItem'>
+    <li
+      onClick={() => setSelectedLocation({ city, country })}
+      className='LocationItem'
+    >
       <FaMapMarkerAlt />
       <span>
-        {`${location.city}, ${location.country}`}
+        {`${city}, ${country}`}
       </span>
     </li>
   )

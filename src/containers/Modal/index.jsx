@@ -19,21 +19,22 @@ export const Modal = ({ activeModal, setActiveModal }) => {
   const isActive = activeModal ? '' : 'hidden'
   const [activeTab, setActiveTab] = useState('guest')
   const [itemFilters, setItemFilters] = useState({
-    country: null,
-    city: null,
+    location: {},
     guests: null
 
   })
 
   const [adultCounter, setAdultCounter] = useState(0)
   const [childCounter, setChildCounter] = useState(0)
+  const [selectedLocation, setSelectedLocation] = useState(null)
 
   useEffect(() => {
     setItemFilters(prev => ({
       ...prev,
+      location: selectedLocation,
       guests: adultCounter + childCounter
     }))
-  }, [adultCounter, childCounter])
+  }, [adultCounter, childCounter, selectedLocation])
 
   return (
     <aside className={`Modal ${isActive}`}>
@@ -50,7 +51,7 @@ export const Modal = ({ activeModal, setActiveModal }) => {
               className='SearchBar-content'
               type='text'
               placeholder='Add location'
-              value={itemFilters.city ?? ''}
+              value={itemFilters.location ? `${itemFilters.location.city}, ${itemFilters.location.country}` : ''}
               readOnly
             />
             <FilterList filter='location' activeTab={activeTab}>
@@ -59,7 +60,7 @@ export const Modal = ({ activeModal, setActiveModal }) => {
                   <LocationItem
                     key={location.title}
                     location={location}
-                    setItemFilters={setItemFilters}
+                    setSelectedLocation={setSelectedLocation}
                   />)
                 )
               }
@@ -77,7 +78,7 @@ export const Modal = ({ activeModal, setActiveModal }) => {
               readOnly
             />
             <FilterList filter='guest' activeTab={activeTab}>
-              <GuestItem title='Adults' description='Ages 13 or above' setItemFilters={setItemFilters}>
+              <GuestItem title='Adults' description='Ages 13 or above'>
                 <Counter>
                   <button
                     className='Counter-btn'
@@ -89,7 +90,7 @@ export const Modal = ({ activeModal, setActiveModal }) => {
                   <button className='Counter-btn' onClick={() => setAdultCounter(adultCounter + 1)}>+</button>
                 </Counter>
               </GuestItem>
-              <GuestItem title='Children' description='Ages 2 - 12' setItemFilters={setItemFilters}>
+              <GuestItem title='Children' description='Ages 2 - 12'>
                 <Counter>
                   <button
                     className='Counter-btn'
