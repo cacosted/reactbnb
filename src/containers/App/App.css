@@ -130,6 +130,10 @@
   top: 38%;
 }
 
+.FilterList--hidden {
+  display: none;
+}
+
 .LocationItem {
   display: flex;
   gap: 2em;
@@ -177,6 +181,11 @@
   padding: 1em 2em;  
 }
 
+.SearchBar-item:focus-within{
+  outline: 2px solid black;
+  border-radius: 15px;
+}
+
 .SearchBar-title {
   display: block;
 }
@@ -187,6 +196,10 @@
   width: 100%;
   border: none;
   padding-block: 1em;
+}
+
+.SearchBar-content:focus {
+  outline: none;
 }
 
 .SearchBar-submit {
