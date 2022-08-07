@@ -6,7 +6,7 @@ export const LocationItem = ({ location }) => {
     <li className='LocationItem'>
       <FaMapMarkerAlt />
       <span>
-        {location.city}
+        {`${location.city}, ${location.country}`}
       </span>
     </li>
   )

@@ -116,7 +116,7 @@
 .Modal-content {
   padding: 2em;
   background-color: #FFF;
-  min-height: 80%;
+  min-height: 95%;
   position: relative;
 }
 
@@ -125,6 +125,9 @@
   padding: 0;
   display: grid;
   gap: 1em;
+
+  position: absolute;
+  top: 38%;
 }
 
 .LocationItem {
@@ -162,8 +165,7 @@
 }
 
 .SearchBar {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   padding-block: .5em;
   border-radius: 15px;
   box-shadow: 0 0 5px rgba(0, 0, 0, .1);
@@ -236,16 +238,21 @@
   } 
 
   .SearchBar {
-    flex-direction: row;
+    grid-template-columns: repeat(3,1fr);
     align-items: center;
-    justify-content: space-between;
   }
 
   .SearchBar-submit {
-    position: static;
+    position: relative;
+    top: 0;
+    width: 50%;
   }
 
   .SearchBar-item + .SearchBar-item {
     border-inline: 1px solid rgba(0, 0, 0, 0.1)
+  }
+
+  .FilterList {
+    top: 28%;
   }
 }
