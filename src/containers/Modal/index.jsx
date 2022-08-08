@@ -14,7 +14,8 @@ import { Counter } from '../../components/Counter'
 // }
 
 export const Modal = ({ activeModal, setActiveModal }) => {
-  const locations = data.slice(0, 10)
+  const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
+  const locations = [...new Set(rawLocations)]
 
   const isActive = activeModal ? '' : 'hidden'
   const [activeTab, setActiveTab] = useState('guest')
@@ -56,12 +57,16 @@ export const Modal = ({ activeModal, setActiveModal }) => {
             />
             <FilterList filter='location' activeTab={activeTab}>
               {
-                locations.map(location => (
-                  <LocationItem
-                    key={location.title}
-                    location={location}
-                    setSelectedLocation={setSelectedLocation}
-                  />)
+                locations.map(location => {
+                  const [city, country] = location.split(', ')
+                  return (
+                    <LocationItem
+                      key={city}
+                      location={{ city, country }}
+                      setSelectedLocation={setSelectedLocation}
+                    />
+                  )
+                }
                 )
               }
             </FilterList>
