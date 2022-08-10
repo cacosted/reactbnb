@@ -7,27 +7,18 @@ import { GuestItem } from '../../components/GuestItem'
 import { FaRegTimesCircle } from 'react-icons/fa'
 import { Counter } from '../../components/Counter'
 
-// const TabList = (active) => {
-//   return (
-//     {}
-//     )
-// }
-
-export const Modal = ({ activeModal, setActiveModal }) => {
+export const Modal = ({ activeModal, setActiveModal, itemFilters, setItemFilters }) => {
   const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
   const locations = [...new Set(rawLocations)]
 
   const isActive = activeModal ? '' : 'hidden'
   const [activeTab, setActiveTab] = useState('guest')
-  const [itemFilters, setItemFilters] = useState({
-    location: {},
-    guests: null
-
-  })
 
   const [adultCounter, setAdultCounter] = useState(0)
   const [childCounter, setChildCounter] = useState(0)
   const [selectedLocation, setSelectedLocation] = useState(null)
+
+  const inputValue = itemFilters.location ? `${itemFilters.location.city}, ${itemFilters.location.country}` : ''
 
   useEffect(() => {
     setItemFilters(prev => ({
@@ -52,7 +43,7 @@ export const Modal = ({ activeModal, setActiveModal }) => {
               className='SearchBar-content'
               type='text'
               placeholder='Add location'
-              value={itemFilters.location ? `${itemFilters.location.city}, ${itemFilters.location.country}` : ''}
+              value={inputValue}
               readOnly
             />
             <FilterList filter='location' activeTab={activeTab}>

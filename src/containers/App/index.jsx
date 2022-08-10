@@ -6,8 +6,14 @@ import { Modal } from '../Modal'
 import { Logo } from '../../components/Logo'
 import { HeaderBar } from '../../components/HeaderBar'
 
+const initialState = {
+  location: {},
+  guests: null
+}
+
 export const App = () => {
   const [activeModal, setActiveModal] = useState(false)
+  const [itemFilters, setItemFilters] = useState(initialState)
 
   return (
     <main className='App'>
@@ -15,8 +21,13 @@ export const App = () => {
         <Logo />
         <HeaderBar activeModal={activeModal} setActiveModal={setActiveModal} />
       </Header>
-      <CardContainer />
-      <Modal activeModal={activeModal} setActiveModal={setActiveModal} />
+      <CardContainer filters={itemFilters} />
+      <Modal
+        activeModal={activeModal}
+        setActiveModal={setActiveModal}
+        itemFilters={itemFilters}
+        setItemFilters={setItemFilters}
+      />
     </main>
   )
 }
