@@ -7,7 +7,7 @@ import { GuestItem } from '../../components/GuestItem'
 import { FaRegTimesCircle } from 'react-icons/fa'
 import { Counter } from '../../components/Counter'
 
-export const Modal = ({ activeModal, setActiveModal, itemFilters, setItemFilters }) => {
+export const Modal = ({ activeModal, setActiveModal, cardFilters, setCardFilters }) => {
   const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
   const locations = [...new Set(rawLocations)]
 
@@ -18,10 +18,10 @@ export const Modal = ({ activeModal, setActiveModal, itemFilters, setItemFilters
   const [childCounter, setChildCounter] = useState(0)
   const [selectedLocation, setSelectedLocation] = useState(null)
 
-  const inputValue = itemFilters.location ? `${itemFilters.location.city}, ${itemFilters.location.country}` : ''
+  const inputValue = cardFilters.location ? `${cardFilters.location.city}, ${cardFilters.location.country}` : ''
 
   useEffect(() => {
-    setItemFilters(prev => ({
+    setCardFilters(prev => ({
       ...prev,
       location: selectedLocation,
       guests: adultCounter + childCounter
@@ -70,7 +70,7 @@ export const Modal = ({ activeModal, setActiveModal, itemFilters, setItemFilters
               className='SearchBar-content'
               type='text'
               placeholder='Add guests'
-              value={itemFilters.guests ? itemFilters.guests : ''}
+              value={cardFilters.guests ? cardFilters.guests : ''}
               readOnly
             />
             <FilterList filter='guest' activeTab={activeTab}>

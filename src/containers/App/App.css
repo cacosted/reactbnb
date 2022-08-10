@@ -206,6 +206,7 @@
   position: absolute;
   bottom: 1em;
   left: 50%;
+  width: fit-content;
   transform: translateX(-50%);
   padding: 1em 2em;
   color: #FFF;
@@ -258,7 +259,6 @@
   .SearchBar-submit {
     position: relative;
     top: 0;
-    width: 50%;
   }
 
   .SearchBar-item + .SearchBar-item {

@@ -13,7 +13,7 @@ const initialState = {
 
 export const App = () => {
   const [activeModal, setActiveModal] = useState(false)
-  const [itemFilters, setItemFilters] = useState(initialState)
+  const [cardFilters, setCardFilters] = useState(initialState)
 
   return (
     <main className='App'>
@@ -21,12 +21,12 @@ export const App = () => {
         <Logo />
         <HeaderBar activeModal={activeModal} setActiveModal={setActiveModal} />
       </Header>
-      <CardContainer filters={itemFilters} />
+      <CardContainer cardFilters={cardFilters} />
       <Modal
         activeModal={activeModal}
         setActiveModal={setActiveModal}
-        itemFilters={itemFilters}
-        setItemFilters={setItemFilters}
+        cardFilters={cardFilters}
+        setCardFilters={setCardFilters}
       />
     </main>
   )
