@@ -79,11 +79,17 @@ export const Modal = ({ activeModal, setActiveModal, itemFilters, setItemFilters
                   <button
                     className='Counter-btn'
                     disabled={adultCounter <= 0}
+                    type='button'
                     onClick={() => setAdultCounter(adultCounter - 1)}
                   >-
                   </button>
                   <span>{adultCounter}</span>
-                  <button className='Counter-btn' onClick={() => setAdultCounter(adultCounter + 1)}>+</button>
+                  <button
+                    className='Counter-btn'
+                    type='button'
+                    onClick={() => setAdultCounter(adultCounter + 1)}
+                  >+
+                  </button>
                 </Counter>
               </GuestItem>
               <GuestItem title='Children' description='Ages 2 - 12'>
@@ -91,11 +97,17 @@ export const Modal = ({ activeModal, setActiveModal, itemFilters, setItemFilters
                   <button
                     className='Counter-btn'
                     onClick={() => setChildCounter(childCounter - 1)}
+                    type='button'
                     disabled={childCounter <= 0}
                   >-
                   </button>
                   <span>{childCounter}</span>
-                  <button className='Counter-btn' onClick={() => setChildCounter(childCounter + 1)}>+</button>
+                  <button
+                    className='Counter-btn'
+                    type='button'
+                    onClick={() => setChildCounter(childCounter + 1)}
+                  >+
+                  </button>
                 </Counter>
               </GuestItem>
             </FilterList>
