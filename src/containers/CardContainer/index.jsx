@@ -2,18 +2,31 @@ import React from 'react'
 import { Card } from '../../components/Card'
 import data from '../../stays.json'
 
-export const CardContainer = () => {
-  const { country } = data
+export const CardContainer = ({ cardFilters }) => {
+  const { country } = data[0]
+  const { location, guests } = cardFilters
+  let cardList = []
+
+  let filteredData = data
+
+  if (location || guests) {
+    filteredData = data.filter(card => (
+      card.city === location.city &&
+      card.country === location.country &&
+      card.maxGuests >= guests
+    ))
+  }
+
+  cardList = filteredData.map((listing, index) => <Card key={index} {...listing} />)
+
   return (
     <section className='CardContainer'>
       <header className='CardContainer-header'>
         <h1>Stays in {country}</h1>
-        <span>12+ days</span>
+        <span>{cardList.length}+ days</span>
       </header>
       <div className='CardContainer-body'>
-        {
-          data.map((listing, index) => <Card key={index} {...listing} />)
-        }
+        {cardList}
       </div>
     </section>
   )

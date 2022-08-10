@@ -7,7 +7,7 @@ import { Logo } from '../../components/Logo'
 import { HeaderBar } from '../../components/HeaderBar'
 
 const initialState = {
-  location: {},
+  location: null,
   guests: null
 }
 
