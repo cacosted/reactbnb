@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaSearch } from 'react-icons/fa'
+import { Form } from './styles'
 
 export const SearchBar = ({ children, setActiveModal, searchFilters, addCardLocation, addCardGuests }) => {
   const { location, guests } = searchFilters
@@ -10,12 +11,12 @@ export const SearchBar = ({ children, setActiveModal, searchFilters, addCardLoca
     setActiveModal(false)
   }
   return (
-    <form className='SearchBar' onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit}>
       {children}
       <button className='SearchBar-submit' type='submit'>
         <FaSearch />
         <span>Search</span>
       </button>
-    </form>
+    </Form>
   )
 }

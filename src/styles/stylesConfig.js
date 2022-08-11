@@ -4,7 +4,8 @@ export const color = {
   dark: '#333333',
   secondaryDark: '#4F4F4F',
   softDark: '#F2F2F2',
-  shadow: 'rgba(79, 79, 79, 0.4)'
+  shadow: 'rgba(79, 79, 79, 0.4)',
+  lightShadow: 'rgba(0, 0, 0, .1)'
 }
 
 export const weight = {
@@ -18,12 +19,17 @@ export const font = {
   regular: '"Montserrat", sans-serif'
 }
 
-export const fontSize = {
+export const size = {
   small: '.5rem',
   medium: '1rem',
   large: '2rem'
 }
 
+export const spacing = {
+  small: '.5em',
+  medium: '1em',
+  large: '2em'
+}
 export const cardSize = {
   regular: '500px'
 }

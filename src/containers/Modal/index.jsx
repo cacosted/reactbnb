@@ -8,7 +8,7 @@ import { FaRegTimesCircle } from 'react-icons/fa'
 import { Counter } from '../../components/Counter'
 import { useCounter } from '../../hooks/useCounter'
 import { useFilter } from '../../hooks/useFilter'
-import { fontSize } from '../../styles/stylesConfig'
+import { size } from '../../styles/stylesConfig'
 import { StyledModal, ModalContent, ModalHeader, ModalTitle } from './styles'
 
 const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
@@ -51,7 +51,7 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
       <ModalContent>
         <ModalHeader>
           <ModalTitle className='Modal-title'>Edit your search</ModalTitle>
-          <FaRegTimesCircle size={fontSize.large} onClick={() => setActiveModal(false)} />
+          <FaRegTimesCircle size={size.large} onClick={() => setActiveModal(false)} />
         </ModalHeader>
         <SearchBar
           setActiveModal={setActiveModal}
