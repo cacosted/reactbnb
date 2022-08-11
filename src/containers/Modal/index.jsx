@@ -9,7 +9,7 @@ import { Counter } from '../../components/Counter'
 import { useCounter } from '../../hooks/useCounter'
 import { useFilter } from '../../hooks/useFilter'
 import { spacing } from '../../styles/stylesConfig'
-import { StyledModal, ModalContent, ModalHeader, ModalTitle, SearchField, SearchInput } from './styles'
+import { StyledModal, ModalContent, ModalHeader, ModalTitle, SearchField, SearchInput, SearchTitle } from './styles'
 
 const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
 const locations = [...new Set(rawLocations)]
@@ -60,7 +60,7 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
           addCardGuests={addCardGuests}
         >
           <SearchField onClick={() => setActiveTab('location')}>
-            <span>Location</span>
+            <SearchTitle>Location</SearchTitle>
             <SearchInput
               id='location'
               type='text'
@@ -86,7 +86,7 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
           </SearchField>
 
           <SearchField bordered onClick={() => setActiveTab('guest')}>
-            <span className='SearchBar-title'>Guests</span>
+            <SearchTitle>Guests</SearchTitle>
             <SearchInput
               id='guest'
               type='text'

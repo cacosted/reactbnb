@@ -30,6 +30,7 @@ export const spacing = {
   medium: '1em',
   large: '2em'
 }
+
 export const cardSize = {
   regular: '500px'
 }

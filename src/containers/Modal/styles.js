@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { color, spacing } from '../../styles/stylesConfig'
+import { color, font, spacing, weight } from '../../styles/stylesConfig'
 
 const fieldShadow = `1px solid ${color.lightShadow}`
 
@@ -7,7 +7,7 @@ export const StyledModal = styled.aside`
   background-color: ${color.shadow};
   position: fixed;
   inset: 0;
-
+  font-family: ${font.light};
   display: ${props => props.activeModal ? 'block' : 'none'};
 `
 export const ModalContent = styled.article`
@@ -47,4 +47,8 @@ export const SearchInput = styled.input`
   &:focus {
     outline: none;
   }
+`
+export const SearchTitle = styled.span`
+  font-weight: ${weight.bolder};
+  letter-spacing: 0.03rem;
 `

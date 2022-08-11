@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-import { font } from './stylesConfig'
+import { color, font } from './stylesConfig'
 
 export const GlobalStyle = createGlobalStyle`
   *,
@@ -12,7 +12,8 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: ${font.regular}
+    font-family: ${font.regular};
+    color: ${color.dark}
   }
 
   img {
