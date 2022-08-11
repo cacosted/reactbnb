@@ -1,10 +1,11 @@
 import React from 'react'
+import { StyledList } from './styles'
 
 export const FilterList = ({ children, filter, activeTab }) => {
-  const isActive = filter === activeTab ? '' : 'FilterList--hidden'
+  const isActive = filter === activeTab
   return (
-    <ul className={`FilterList ${isActive}`}>
+    <StyledList isActive={isActive}>
       {children}
-    </ul>
+    </StyledList>
   )
 }
