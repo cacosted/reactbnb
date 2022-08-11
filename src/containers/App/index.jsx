@@ -6,13 +6,14 @@ import { Modal } from '../Modal'
 import { Logo } from '../../components/Logo'
 import { HeaderBar } from '../../components/HeaderBar'
 import { useFilter } from '../../hooks/useFilter'
+import { StyledApp } from './styles'
 
 export const App = () => {
   const [activeModal, setActiveModal] = useState(false)
   const { filters: cardFilters, addLocation: addCardLocation, addGuests: addCardGuests } = useFilter()
 
   return (
-    <main className='App'>
+    <StyledApp className='App'>
       <Header>
         <Logo />
         <HeaderBar activeModal={activeModal} setActiveModal={setActiveModal} cardFilters={cardFilters} />
@@ -24,6 +25,6 @@ export const App = () => {
         addCardGuests={addCardGuests}
         addCardLocation={addCardLocation}
       />
-    </main>
+    </StyledApp>
   )
 }

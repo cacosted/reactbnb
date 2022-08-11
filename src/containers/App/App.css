@@ -1,6 +1,3 @@
-.App {
-  padding: 2em;
-}
 
 .CardContainer-header {
   display: flex;
@@ -229,9 +226,6 @@
 /* -------------------------------- */
 @media (min-width: 800px) {
 
-  .App {
-    padding-inline: 5em;
-  }
 
   .Header-navbar {
     display: flex;
