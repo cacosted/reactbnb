@@ -1,30 +1,14 @@
 import React from 'react'
 import { Card } from '../../components/Card'
 import data from '../../stays.json'
+import { getFilteredData } from '../../services/getFilteredData'
 
 export const CardContainer = ({ cardFilters }) => {
   const { country } = data[0]
-  const { location, guests } = cardFilters
-  let cardList = []
 
-  let filteredData = data
+  const filteredData = getFilteredData(cardFilters, data)
 
-  if (location && guests) {
-    filteredData = data.filter(card => (
-      card.city === location.city &&
-      card.country === location.country &&
-      card.maxGuests >= guests
-    ))
-  } else if (location) {
-    filteredData = data.filter(card => (
-      card.city === location.city &&
-      card.country === location.country
-    ))
-  } else if (guests) {
-    filteredData = data.filter(card => card.maxGuests >= guests)
-  }
-
-  cardList = filteredData.map((listing, index) => <Card key={index} {...listing} />)
+  const cardList = filteredData.map((listing, index) => <Card key={index} {...listing} />)
 
   const stays = cardList.length
   return (

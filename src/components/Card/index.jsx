@@ -38,7 +38,6 @@ export const Card = ({
           </CardRating>
         </CardHeader>
         <CardText>{title}</CardText>
-
       </div>
     </StyledCard>
   )
