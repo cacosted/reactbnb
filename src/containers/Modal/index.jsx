@@ -6,6 +6,7 @@ import { LocationItem } from '../../components/LocationItem'
 import { GuestItem } from '../../components/GuestItem'
 import { FaRegTimesCircle } from 'react-icons/fa'
 import { Counter } from '../../components/Counter'
+import { useCounter } from '../../hooks/useCounter'
 
 export const Modal = ({ activeModal, setActiveModal, initialState, setCardFilters }) => {
   const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
@@ -14,8 +15,18 @@ export const Modal = ({ activeModal, setActiveModal, initialState, setCardFilter
   const isActive = activeModal ? '' : 'hidden'
   const [activeTab, setActiveTab] = useState('guest')
 
-  const [adultCounter, setAdultCounter] = useState(0)
-  const [childCounter, setChildCounter] = useState(0)
+  const {
+    counter: adultCounter,
+    increment: adultIncrement,
+    decrement: adultDecrement
+  } = useCounter()
+
+  const {
+    counter: childCounter,
+    increment: childIncrement,
+    decrement: childDecrement
+  } = useCounter()
+
   const [selectedLocation, setSelectedLocation] = useState(null)
   const [searchFilters, setSearchFilters] = useState(initialState)
   const inputValue = searchFilters.location ? `${searchFilters.location.city}, ${searchFilters.location.country}` : ''
@@ -79,14 +90,14 @@ export const Modal = ({ activeModal, setActiveModal, initialState, setCardFilter
                     className='Counter-btn'
                     disabled={adultCounter <= 0}
                     type='button'
-                    onClick={() => setAdultCounter(adultCounter - 1)}
+                    onClick={adultDecrement}
                   >-
                   </button>
                   <span>{adultCounter}</span>
                   <button
                     className='Counter-btn'
                     type='button'
-                    onClick={() => setAdultCounter(adultCounter + 1)}
+                    onClick={adultIncrement}
                   >+
                   </button>
                 </Counter>
@@ -95,7 +106,7 @@ export const Modal = ({ activeModal, setActiveModal, initialState, setCardFilter
                 <Counter>
                   <button
                     className='Counter-btn'
-                    onClick={() => setChildCounter(childCounter - 1)}
+                    onClick={childDecrement}
                     type='button'
                     disabled={childCounter <= 0}
                   >-
@@ -104,7 +115,7 @@ export const Modal = ({ activeModal, setActiveModal, initialState, setCardFilter
                   <button
                     className='Counter-btn'
                     type='button'
-                    onClick={() => setChildCounter(childCounter + 1)}
+                    onClick={childIncrement}
                   >+
                   </button>
                 </Counter>
