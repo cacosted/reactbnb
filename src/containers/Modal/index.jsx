@@ -21,11 +21,10 @@ export const Modal = ({ activeModal, setActiveModal, initialState, setCardFilter
   const inputValue = searchFilters.location ? `${searchFilters.location.city}, ${searchFilters.location.country}` : ''
 
   useEffect(() => {
-    setSearchFilters(prev => ({
-      ...prev,
+    setSearchFilters({
       location: selectedLocation,
       guests: adultCounter + childCounter
-    }))
+    })
   }, [adultCounter, childCounter, selectedLocation])
 
   return (

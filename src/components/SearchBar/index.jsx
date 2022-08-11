@@ -7,11 +7,10 @@ export const SearchBar = ({ children, setActiveModal, searchFilters, setCardFilt
   const { location, guests } = searchFilters
   const onSubmit = (e) => {
     e.preventDefault()
-    setCardFilters(prev => ({
-      ...prev,
+    setCardFilters({
       location,
       guests
-    }))
+    })
     setActiveModal(false)
   }
   return (
