@@ -6,7 +6,7 @@ export const Container = styled.div`
     align-items: center;
     width: max-content;
     margin-inline: auto;
-    margin-block-end: 1em;
+    margin-block: 1em;
     border-radius: 16px;
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
     font-family: var(--light-font);

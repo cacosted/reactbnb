@@ -1,8 +1,17 @@
 import React from 'react'
 import { FaStar } from 'react-icons/fa'
-
-const Span = ({ children }) => <span className='Card-badge'>{children}</span>
-
+import { color } from '../../styles/stylesConfig'
+import {
+  StyledSpan,
+  StyledCard,
+  CardPicture,
+  CardImage,
+  CardHeader,
+  CardHeading,
+  CardRating,
+  CardTitle,
+  CardText
+} from './styles'
 export const Card = ({
   superHost,
   title,
@@ -12,26 +21,25 @@ export const Card = ({
   photo
 }) => {
   return (
-    <article className='Card'>
-      <picture className='Card-picture'>
-        <img className='Card-img' src={photo} alt={title} />
-      </picture>
-      <div className='Card-details'>
+    <StyledCard>
+      <CardPicture>
+        <CardImage src={photo} alt={title} />
+      </CardPicture>
+      <div>
+        <CardHeader>
+          <CardHeading>
+            {superHost && <StyledSpan>Super Host</StyledSpan>}
+            <CardTitle>{`${type} . ${beds}`} Beds</CardTitle>
+          </CardHeading>
 
-        <header className='Card-header'>
-          <div className='Card-title'>
-            {superHost && <Span>Super Host</Span>}
-            <h2>{type} . {beds} Beds</h2>
-          </div>
-
-          <div className='Card-rating'>
-            <FaStar color='#eb5757  ' />
+          <CardRating>
+            <FaStar color={color.main} />
             <span>{rating}</span>
-          </div>
-        </header>
-        <p className='Card-text'>{title}</p>
+          </CardRating>
+        </CardHeader>
+        <CardText>{title}</CardText>
 
       </div>
-    </article>
+    </StyledCard>
   )
 }
