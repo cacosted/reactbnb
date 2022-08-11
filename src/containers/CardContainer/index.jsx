@@ -2,6 +2,7 @@ import React from 'react'
 import { Card } from '../../components/Card'
 import data from '../../stays.json'
 import { getFilteredData } from '../../services/getFilteredData'
+import { CardContainerBody, CardContainerHeader } from './styles'
 
 export const CardContainer = ({ cardFilters }) => {
   const { country } = data[0]
@@ -12,14 +13,14 @@ export const CardContainer = ({ cardFilters }) => {
 
   const stays = cardList.length
   return (
-    <section className='CardContainer'>
-      <header className='CardContainer-header'>
+    <section>
+      <CardContainerHeader>
         <h1>Stays in {country}</h1>
         <span>{stays >= 12 ? '12+' : stays} stays</span>
-      </header>
-      <div className='CardContainer-body'>
+      </CardContainerHeader>
+      <CardContainerBody>
         {cardList}
-      </div>
+      </CardContainerBody>
     </section>
   )
 }
