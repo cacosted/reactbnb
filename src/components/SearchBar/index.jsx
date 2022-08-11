@@ -3,9 +3,15 @@ import { FaSearch } from 'react-icons/fa'
 // import { FilterList } from '../../containers/FilterList'
 // import { GuestItem } from '../GuestItem'
 
-export const SearchBar = ({ children, setActiveModal }) => {
+export const SearchBar = ({ children, setActiveModal, searchFilters, setCardFilters }) => {
+  const { location, guests } = searchFilters
   const onSubmit = (e) => {
     e.preventDefault()
+    setCardFilters(prev => ({
+      ...prev,
+      location,
+      guests
+    }))
     setActiveModal(false)
   }
   return (

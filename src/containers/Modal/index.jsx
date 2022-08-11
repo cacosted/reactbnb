@@ -7,7 +7,7 @@ import { GuestItem } from '../../components/GuestItem'
 import { FaRegTimesCircle } from 'react-icons/fa'
 import { Counter } from '../../components/Counter'
 
-export const Modal = ({ activeModal, setActiveModal, cardFilters, setCardFilters }) => {
+export const Modal = ({ activeModal, setActiveModal, initialState, setCardFilters }) => {
   const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
   const locations = [...new Set(rawLocations)]
 
@@ -17,11 +17,11 @@ export const Modal = ({ activeModal, setActiveModal, cardFilters, setCardFilters
   const [adultCounter, setAdultCounter] = useState(0)
   const [childCounter, setChildCounter] = useState(0)
   const [selectedLocation, setSelectedLocation] = useState(null)
-
-  const inputValue = cardFilters.location ? `${cardFilters.location.city}, ${cardFilters.location.country}` : ''
+  const [searchFilters, setSearchFilters] = useState(initialState)
+  const inputValue = searchFilters.location ? `${searchFilters.location.city}, ${searchFilters.location.country}` : ''
 
   useEffect(() => {
-    setCardFilters(prev => ({
+    setSearchFilters(prev => ({
       ...prev,
       location: selectedLocation,
       guests: adultCounter + childCounter
@@ -35,7 +35,7 @@ export const Modal = ({ activeModal, setActiveModal, cardFilters, setCardFilters
           <h1 className='Modal-title'>Edit your search</h1>
           <FaRegTimesCircle className='Modal-close' onClick={() => setActiveModal(false)} />
         </div>
-        <SearchBar setActiveModal={setActiveModal}>
+        <SearchBar setActiveModal={setActiveModal} searchFilters={searchFilters} setCardFilters={setCardFilters}>
           <label className='SearchBar-item' onClick={() => setActiveTab('location')}>
             <span className='SearchBar-title'>Location</span>
             <input
@@ -70,7 +70,7 @@ export const Modal = ({ activeModal, setActiveModal, cardFilters, setCardFilters
               className='SearchBar-content'
               type='text'
               placeholder='Add guests'
-              value={cardFilters.guests ? cardFilters.guests : ''}
+              value={searchFilters.guests ? searchFilters.guests : ''}
               readOnly
             />
             <FilterList filter='guest' activeTab={activeTab}>

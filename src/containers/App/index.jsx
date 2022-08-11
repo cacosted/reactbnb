@@ -24,8 +24,8 @@ export const App = () => {
       <CardContainer cardFilters={cardFilters} />
       <Modal
         activeModal={activeModal}
+        initialState={initialState}
         setActiveModal={setActiveModal}
-        cardFilters={cardFilters}
         setCardFilters={setCardFilters}
       />
     </main>
