@@ -8,12 +8,14 @@ import { FaRegTimesCircle } from 'react-icons/fa'
 import { Counter } from '../../components/Counter'
 import { useCounter } from '../../hooks/useCounter'
 import { useFilter } from '../../hooks/useFilter'
+import { StyledModal } from './styles'
 
 const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
 const locations = [...new Set(rawLocations)]
 
 export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGuests }) => {
-  const isActive = activeModal ? '' : 'hidden'
+  // const isActive = activeModal ? '' : 'hidden'
+  console.log(activeModal)
   const [activeTab, setActiveTab] = useState('guest')
 
   // adultCounter
@@ -46,7 +48,7 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
   }, [totalGuests, selectedLocation])
 
   return (
-    <aside className={`Modal ${isActive}`}>
+    <StyledModal activeModal={activeModal}>
       <div className='Modal-content'>
         <div className='Modal-header'>
           <h1 className='Modal-title'>Edit your search</h1>
@@ -137,6 +139,6 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
         </SearchBar>
 
       </div>
-    </aside>
+    </StyledModal>
   )
 }
