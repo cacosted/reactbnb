@@ -1,6 +1,7 @@
 import React from 'react'
-import { Button } from '../Button'
+import { HeaderButton } from '../HeaderButton'
 import { FaSearch } from 'react-icons/fa'
+import { Container, ButtonText } from './styles'
 
 export const HeaderBar = ({ setActiveModal, cardFilters }) => {
   const { location, guests } = cardFilters
@@ -9,16 +10,16 @@ export const HeaderBar = ({ setActiveModal, cardFilters }) => {
   const guestText = `Guests: ${guests}`
 
   return (
-    <div className='HeaderBar-search' onClick={() => setActiveModal(true)}>
-      <Button filter='location'>
-        <span>{location ? locationText : 'Helsinki, Finland'}</span>
-      </Button>
-      <Button filter='guest' bordered>
-        <span>{guests ? guestText : 'Add Guests'}</span>
-      </Button>
-      <Button filter='guest'>
+    <Container onClick={() => setActiveModal(true)}>
+      <HeaderButton filter='location'>
+        <ButtonText>{location ? locationText : 'Helsinki, Finland'}</ButtonText>
+      </HeaderButton>
+      <HeaderButton filter='guest' bordered>
+        <ButtonText light>{guests ? guestText : 'Add Guests'}</ButtonText>
+      </HeaderButton>
+      <HeaderButton filter='guest'>
         <FaSearch color='#eb5757' />
-      </Button>
-    </div>
+      </HeaderButton>
+    </Container>
   )
 }

@@ -13,7 +13,7 @@ export const App = () => {
   const { filters: cardFilters, addLocation: addCardLocation, addGuests: addCardGuests } = useFilter()
 
   return (
-    <StyledApp className='App'>
+    <StyledApp>
       <Header>
         <Logo />
         <HeaderBar activeModal={activeModal} setActiveModal={setActiveModal} cardFilters={cardFilters} />

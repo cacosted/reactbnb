@@ -61,37 +61,6 @@
   align-items: center;
   gap: .4em;
 }
-.Header-img {
-  display: block;
-  margin-block-end: 2.5em;
-
-}
-
-.HeaderBar-search {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: max-content;
-  margin-inline: auto;
-  margin-block-end: 1em;
-  border-radius: 16px;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
-  font-family: var(--light-font);
-} 
-
-.Header-btn {
-  background-color: transparent;
-  border: none;
-  padding: 1.5em;
-  font-size: 1rem;
-}
-
-.Header-btn--bordered {
-  border-inline: 1px solid #F2F2F2;
-}
-.Header-btn--bordered span {
-  opacity: .3;
-}
 
 .Modal {
   background-color: rgba(79, 79, 79, 0.4);
@@ -225,25 +194,6 @@
 
 /* -------------------------------- */
 @media (min-width: 800px) {
-
-
-  .Header-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .Header-img {
-    margin-block-end: 0;
-  }
-  
-  .HeaderBar-search {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: max-content;
-    margin: 0;
-  } 
 
   .SearchBar {
     grid-template-columns: repeat(3,1fr);

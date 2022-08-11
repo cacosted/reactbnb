@@ -2,7 +2,8 @@ export const color = {
   main: '#eb6565',
   light: '#fff',
   dark: '#333333',
-  softDark: '#4F4F4F',
+  secondaryDark: '#4F4F4F',
+  softDark: '#F2F2F2',
   shadow: 'rgba(79, 79, 79, 0.4)'
 }
 
