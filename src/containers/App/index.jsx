@@ -19,7 +19,7 @@ export const App = () => {
     <main className='App'>
       <Header>
         <Logo />
-        <HeaderBar activeModal={activeModal} setActiveModal={setActiveModal} />
+        <HeaderBar activeModal={activeModal} setActiveModal={setActiveModal} cardFilters={cardFilters} />
       </Header>
       <CardContainer cardFilters={cardFilters} />
       <Modal
