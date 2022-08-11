@@ -1,17 +1,18 @@
 import { FaMapMarkerAlt } from 'react-icons/fa'
+import { StyledLocation } from './styles'
+import { color } from '../../styles/stylesConfig'
 
 export const LocationItem = ({ location, setSelectedLocation }) => {
   const { city, country } = location
 
   return (
-    <li
+    <StyledLocation
       onClick={() => setSelectedLocation({ city, country })}
-      className='LocationItem'
     >
-      <FaMapMarkerAlt />
+      <FaMapMarkerAlt color={color.secondaryDark} />
       <span>
         {`${city}, ${country}`}
       </span>
-    </li>
+    </StyledLocation>
   )
 }
