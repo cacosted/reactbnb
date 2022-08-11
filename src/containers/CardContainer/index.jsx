@@ -9,21 +9,33 @@ export const CardContainer = ({ cardFilters }) => {
 
   let filteredData = data
 
-  if (location || guests) {
+  if (location && guests) {
+    // console.log('location && guests')
     filteredData = data.filter(card => (
       card.city === location.city &&
       card.country === location.country &&
       card.maxGuests >= guests
     ))
+  } else if (location) {
+    // console.log('location')
+    filteredData = data.filter(card => (
+      card.city === location.city &&
+      card.country === location.country
+    ))
+  } else if (guests) {
+    // console.log('guests')
+    filteredData = data.filter(card => card.maxGuests >= guests)
   }
+  console.log(filteredData)
 
   cardList = filteredData.map((listing, index) => <Card key={index} {...listing} />)
 
+  const stays = cardList.length
   return (
     <section className='CardContainer'>
       <header className='CardContainer-header'>
         <h1>Stays in {country}</h1>
-        <span>{cardList.length}+ days</span>
+        <span>{stays >= 12 ? `${stays}+` : stays} stays</span>
       </header>
       <div className='CardContainer-body'>
         {cardList}
