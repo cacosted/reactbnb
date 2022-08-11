@@ -39,3 +39,12 @@ export const SearchField = styled.label`
     border-inline: ${props => props.bordered ? fieldShadow : 'none'}
   }
 `
+export const SearchInput = styled.input`
+  width: 100%;
+  border: none;
+  padding-block: ${spacing.medium};
+
+  &:focus {
+    outline: none;
+  }
+`

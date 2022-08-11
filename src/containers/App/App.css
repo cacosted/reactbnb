@@ -46,20 +46,6 @@
   border: 1px solid black;
 }
 
-.SearchBar-title {
-  display: block;
-}
-
-.SearchBar-content {
-  width: 100%;
-  border: none;
-  padding-block: 1em;
-}
-
-.SearchBar-content:focus {
-  outline: none;
-}
-
 .Counter-btn:active {
   filter: brightness(95%);
 }
