@@ -5,15 +5,12 @@ import { CardContainer } from '../CardContainer'
 import { Modal } from '../Modal'
 import { Logo } from '../../components/Logo'
 import { HeaderBar } from '../../components/HeaderBar'
-
-const initialState = {
-  location: null,
-  guests: null
-}
+import { useFilter } from '../../hooks/useFilter'
 
 export const App = () => {
   const [activeModal, setActiveModal] = useState(false)
-  const [cardFilters, setCardFilters] = useState(initialState)
+  // const [cardFilters, setCardFilters] = useState(initialState)
+  const { filters: cardFilters, addLocation: addCardLocation, addGuests: addCardGuests } = useFilter()
 
   return (
     <main className='App'>
@@ -24,9 +21,9 @@ export const App = () => {
       <CardContainer cardFilters={cardFilters} />
       <Modal
         activeModal={activeModal}
-        initialState={initialState}
         setActiveModal={setActiveModal}
-        setCardFilters={setCardFilters}
+        addCardGuests={addCardGuests}
+        addCardLocation={addCardLocation}
       />
     </main>
   )

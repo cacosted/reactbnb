@@ -7,20 +7,23 @@ import { GuestItem } from '../../components/GuestItem'
 import { FaRegTimesCircle } from 'react-icons/fa'
 import { Counter } from '../../components/Counter'
 import { useCounter } from '../../hooks/useCounter'
+import { useFilter } from '../../hooks/useFilter'
 
-export const Modal = ({ activeModal, setActiveModal, initialState, setCardFilters }) => {
-  const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
-  const locations = [...new Set(rawLocations)]
+const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
+const locations = [...new Set(rawLocations)]
 
+export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGuests }) => {
   const isActive = activeModal ? '' : 'hidden'
   const [activeTab, setActiveTab] = useState('guest')
 
+  // adultCounter
   const {
     counter: adultCounter,
     increment: adultIncrement,
     decrement: adultDecrement
   } = useCounter()
 
+  // childCounter
   const {
     counter: childCounter,
     increment: childIncrement,
@@ -28,15 +31,19 @@ export const Modal = ({ activeModal, setActiveModal, initialState, setCardFilter
   } = useCounter()
 
   const [selectedLocation, setSelectedLocation] = useState(null)
-  const [searchFilters, setSearchFilters] = useState(initialState)
-  const inputValue = searchFilters.location ? `${searchFilters.location.city}, ${searchFilters.location.country}` : ''
+  const {
+    filters: searchFilters,
+    addLocation: addSearchLocation,
+    addGuests: addSearchGuests
+  } = useFilter()
+
+  const locationValue = searchFilters.location ? `${searchFilters.location.city}, ${searchFilters.location.country}` : ''
+  const totalGuests = adultCounter + childCounter
 
   useEffect(() => {
-    setSearchFilters({
-      location: selectedLocation,
-      guests: adultCounter + childCounter
-    })
-  }, [adultCounter, childCounter, selectedLocation])
+    addSearchLocation(selectedLocation)
+    addSearchGuests(totalGuests)
+  }, [totalGuests, selectedLocation])
 
   return (
     <aside className={`Modal ${isActive}`}>
@@ -45,7 +52,12 @@ export const Modal = ({ activeModal, setActiveModal, initialState, setCardFilter
           <h1 className='Modal-title'>Edit your search</h1>
           <FaRegTimesCircle className='Modal-close' onClick={() => setActiveModal(false)} />
         </div>
-        <SearchBar setActiveModal={setActiveModal} searchFilters={searchFilters} setCardFilters={setCardFilters}>
+        <SearchBar
+          setActiveModal={setActiveModal}
+          searchFilters={searchFilters}
+          addCardLocation={addCardLocation}
+          addCardGuests={addCardGuests}
+        >
           <label className='SearchBar-item' onClick={() => setActiveTab('location')}>
             <span className='SearchBar-title'>Location</span>
             <input
@@ -53,7 +65,7 @@ export const Modal = ({ activeModal, setActiveModal, initialState, setCardFilter
               className='SearchBar-content'
               type='text'
               placeholder='Add location'
-              value={inputValue}
+              value={locationValue}
               readOnly
             />
             <FilterList filter='location' activeTab={activeTab}>
@@ -80,7 +92,7 @@ export const Modal = ({ activeModal, setActiveModal, initialState, setCardFilter
               className='SearchBar-content'
               type='text'
               placeholder='Add guests'
-              value={searchFilters.guests ? searchFilters.guests : ''}
+              value={totalGuests ?? ''}
               readOnly
             />
             <FilterList filter='guest' activeTab={activeTab}>
