@@ -8,8 +8,8 @@ import { FaRegTimesCircle } from 'react-icons/fa'
 import { Counter } from '../../components/Counter'
 import { useCounter } from '../../hooks/useCounter'
 import { useFilter } from '../../hooks/useFilter'
-import { size } from '../../styles/stylesConfig'
-import { StyledModal, ModalContent, ModalHeader, ModalTitle } from './styles'
+import { spacing } from '../../styles/stylesConfig'
+import { StyledModal, ModalContent, ModalHeader, ModalTitle, SearchField } from './styles'
 
 const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
 const locations = [...new Set(rawLocations)]
@@ -51,7 +51,7 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
       <ModalContent>
         <ModalHeader>
           <ModalTitle className='Modal-title'>Edit your search</ModalTitle>
-          <FaRegTimesCircle size={size.large} onClick={() => setActiveModal(false)} />
+          <FaRegTimesCircle size={spacing.large} onClick={() => setActiveModal(false)} />
         </ModalHeader>
         <SearchBar
           setActiveModal={setActiveModal}
@@ -59,7 +59,7 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
           addCardLocation={addCardLocation}
           addCardGuests={addCardGuests}
         >
-          <label className='SearchBar-item' onClick={() => setActiveTab('location')}>
+          <SearchField onClick={() => setActiveTab('location')}>
             <span className='SearchBar-title'>Location</span>
             <input
               id='location'
@@ -84,9 +84,9 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
                 )
               }
             </FilterList>
-          </label>
+          </SearchField>
 
-          <label className='SearchBar-item' onClick={() => setActiveTab('guest')}>
+          <SearchField bordered onClick={() => setActiveTab('guest')}>
             <span className='SearchBar-title'>Guests</span>
             <input
               id='guest'
@@ -134,7 +134,7 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
                 </Counter>
               </GuestItem>
             </FilterList>
-          </label>
+          </SearchField>
         </SearchBar>
 
       </ModalContent>

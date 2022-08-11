@@ -1,5 +1,7 @@
 import styled from 'styled-components'
-import { color } from '../../styles/stylesConfig'
+import { color, spacing } from '../../styles/stylesConfig'
+
+const fieldShadow = `1px solid ${color.lightShadow}`
 
 export const StyledModal = styled.aside`
   background-color: ${color.shadow};
@@ -21,4 +23,19 @@ export const ModalHeader = styled.header`
 `
 export const ModalTitle = styled.h1`
   margin: 0;
+`
+
+export const SearchField = styled.label`
+  padding: ${spacing.medium} ${spacing.large};
+  border-block-start: ${props => props.bordered ? fieldShadow : 'none'};
+
+  &:focus-within {
+    outline: 2px solid ${color.dark};
+    border-radius: 15px;
+  }
+
+  
+  @media (min-width: 800px) {
+    border-inline: ${props => props.bordered ? fieldShadow : 'none'}
+  }
 `

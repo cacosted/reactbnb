@@ -46,21 +46,10 @@
   border: 1px solid black;
 }
 
-.SearchBar-item {
-  padding: 1em 2em;  
-}
-
-.SearchBar-item:focus-within{
-  outline: 2px solid black;
-  border-radius: 15px;
-}
-
 .SearchBar-title {
   display: block;
 }
-.SearchBar-item + .SearchBar-item {
-  border-top: 1px solid rgba(0, 0, 0, 0.1)
-} 
+
 .SearchBar-content {
   width: 100%;
   border: none;
@@ -77,10 +66,6 @@
 
 /* -------------------------------- */
 @media (min-width: 800px) {
-
-  .SearchBar-item + .SearchBar-item {
-    border-inline: 1px solid rgba(0, 0, 0, 0.1)
-  }
 
   .FilterList {
     top: 28%;
