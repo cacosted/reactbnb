@@ -9,7 +9,6 @@ import { useFilter } from '../../hooks/useFilter'
 
 export const App = () => {
   const [activeModal, setActiveModal] = useState(false)
-  // const [cardFilters, setCardFilters] = useState(initialState)
   const { filters: cardFilters, addLocation: addCardLocation, addGuests: addCardGuests } = useFilter()
 
   return (

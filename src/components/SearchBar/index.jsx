@@ -1,7 +1,5 @@
 import React from 'react'
 import { FaSearch } from 'react-icons/fa'
-// import { FilterList } from '../../containers/FilterList'
-// import { GuestItem } from '../GuestItem'
 
 export const SearchBar = ({ children, setActiveModal, searchFilters, addCardLocation, addCardGuests }) => {
   const { location, guests } = searchFilters
