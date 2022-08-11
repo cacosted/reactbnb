@@ -8,3 +8,17 @@ export const StyledModal = styled.aside`
 
   display: ${props => props.activeModal ? 'block' : 'none'};
 `
+export const ModalContent = styled.article`
+  padding: 2em;
+  background-color: ${color.light};
+  min-height: 95%;
+  position: relative;
+`
+export const ModalHeader = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+export const ModalTitle = styled.h1`
+  margin: 0;
+`

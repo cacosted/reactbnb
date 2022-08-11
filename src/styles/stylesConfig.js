@@ -18,6 +18,12 @@ export const font = {
   regular: '"Montserrat", sans-serif'
 }
 
+export const fontSize = {
+  small: '.5rem',
+  medium: '1rem',
+  large: '2rem'
+}
+
 export const cardSize = {
   regular: '500px'
 }

@@ -8,14 +8,13 @@ import { FaRegTimesCircle } from 'react-icons/fa'
 import { Counter } from '../../components/Counter'
 import { useCounter } from '../../hooks/useCounter'
 import { useFilter } from '../../hooks/useFilter'
-import { StyledModal } from './styles'
+import { fontSize } from '../../styles/stylesConfig'
+import { StyledModal, ModalContent, ModalHeader, ModalTitle } from './styles'
 
 const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
 const locations = [...new Set(rawLocations)]
 
 export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGuests }) => {
-  // const isActive = activeModal ? '' : 'hidden'
-  console.log(activeModal)
   const [activeTab, setActiveTab] = useState('guest')
 
   // adultCounter
@@ -49,11 +48,11 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
 
   return (
     <StyledModal activeModal={activeModal}>
-      <div className='Modal-content'>
-        <div className='Modal-header'>
-          <h1 className='Modal-title'>Edit your search</h1>
-          <FaRegTimesCircle className='Modal-close' onClick={() => setActiveModal(false)} />
-        </div>
+      <ModalContent>
+        <ModalHeader>
+          <ModalTitle className='Modal-title'>Edit your search</ModalTitle>
+          <FaRegTimesCircle size={fontSize.large} onClick={() => setActiveModal(false)} />
+        </ModalHeader>
         <SearchBar
           setActiveModal={setActiveModal}
           searchFilters={searchFilters}
@@ -138,7 +137,7 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
           </label>
         </SearchBar>
 
-      </div>
+      </ModalContent>
     </StyledModal>
   )
 }
