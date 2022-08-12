@@ -100,7 +100,7 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
               id='guest'
               type='text'
               placeholder='Add guests'
-              value={totalGuests ?? ''}
+              value={totalGuests ? `${totalGuests} guests` : ''}
               readOnly
             />
             <FilterList filter='guest' activeTab={activeTab}>

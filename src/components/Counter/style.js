@@ -11,7 +11,7 @@ export const StyledCounter = styled.div`
 
 export const CounterButton = styled.button`
   border-radius: 5px;
-  padding: .3em ${spacing.small};
+  padding: .2em .6em;
   font-size: ${size.medium};
   background-color: ${color.light};
   border: 1px solid ${color.dark};
