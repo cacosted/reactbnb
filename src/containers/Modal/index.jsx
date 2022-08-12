@@ -9,7 +9,16 @@ import { Counter } from '../../components/Counter'
 import { useCounter } from '../../hooks/useCounter'
 import { useFilter } from '../../hooks/useFilter'
 import { spacing } from '../../styles/stylesConfig'
-import { StyledModal, ModalContent, ModalHeader, ModalTitle, SearchField, SearchInput, SearchTitle } from './styles'
+import { CounterButton } from '../../components/Counter/style'
+import {
+  StyledModal,
+  ModalContent,
+  ModalHeader,
+  ModalTitle,
+  SearchField,
+  SearchInput,
+  SearchTitle
+} from './styles'
 
 const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
 const locations = [...new Set(rawLocations)]
@@ -97,38 +106,34 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
             <FilterList filter='guest' activeTab={activeTab}>
               <GuestItem title='Adults' description='Ages 13 or above'>
                 <Counter>
-                  <button
-                    className='Counter-btn'
+                  <CounterButton
                     disabled={adultCounter <= 0}
                     type='button'
                     onClick={adultDecrement}
                   >-
-                  </button>
+                  </CounterButton>
                   <span>{adultCounter}</span>
-                  <button
-                    className='Counter-btn'
+                  <CounterButton
                     type='button'
                     onClick={adultIncrement}
                   >+
-                  </button>
+                  </CounterButton>
                 </Counter>
               </GuestItem>
               <GuestItem title='Children' description='Ages 2 - 12'>
                 <Counter>
-                  <button
-                    className='Counter-btn'
+                  <CounterButton
                     onClick={childDecrement}
                     type='button'
                     disabled={childCounter <= 0}
                   >-
-                  </button>
+                  </CounterButton>
                   <span>{childCounter}</span>
-                  <button
-                    className='Counter-btn'
+                  <CounterButton
                     type='button'
                     onClick={childIncrement}
                   >+
-                  </button>
+                  </CounterButton>
                 </Counter>
               </GuestItem>
             </FilterList>

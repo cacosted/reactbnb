@@ -1,32 +1,20 @@
-.GuestItem-header > * {
-  margin: 0;
-}
-
-.GuestItem-title {
-  font-size: 1rem;
-}
-
-.GuestItem-description {
-  opacity: .3;
-}
-
-.Counter {
+/* .Counter {
   margin-block: 1em;
   display: flex;
   align-items: center;
   gap: 1em;
   font-size: 1.1rem;
   
-}
-
+} */
+/* 
 .Counter button {
   border-radius: 5px;
   padding: .3em .5em;
   font-size: 1.1rem;
   background-color: #FFF;
   border: 1px solid black;
-}
-
+} */
+/* 
 .Counter-btn:active {
   filter: brightness(95%);
-}
+} */

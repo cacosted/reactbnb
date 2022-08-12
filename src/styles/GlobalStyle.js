@@ -16,6 +16,11 @@ export const GlobalStyle = createGlobalStyle`
     color: ${color.dark}
   }
 
+
+  h1,h2,p {
+    margin: 0;
+  }
+
   img {
     max-width: 100%;
   }
