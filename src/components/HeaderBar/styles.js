@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { color, font, spacing } from '../../styles/stylesConfig'
 
 export const Container = styled.div`
     display: flex;
@@ -6,10 +7,10 @@ export const Container = styled.div`
     align-items: center;
     width: max-content;
     margin-inline: auto;
-    margin-block: 1em;
+    margin-block: ${spacing.medium};
     border-radius: 16px;
-    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
-    font-family: var(--light-font);
+    box-shadow: 0px 1px 6px ${color.lightShadow};
+    font-family: ${font.light};
     overflow: hidden;
 
     @media (min-width: 800px) {

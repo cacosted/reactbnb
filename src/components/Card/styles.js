@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { cardSize, color, weight } from '../../styles/stylesConfig'
+import { cardSize, color, spacing, weight } from '../../styles/stylesConfig'
 
 export const StyledSpan = styled.span`
   border: 1px solid ${color.secondaryDark};
   border-radius: 12px;
-  padding: .3em .6em;
+  padding: .3em ${spacing.small};
   font-weight: ${weight.bolder};
 `
 
@@ -33,8 +33,9 @@ export const CardHeader = styled.header`
 
 export const CardHeading = styled.div`
   display: flex;
-  gap: 1em;
+  gap: ${spacing.medium};
   align-items: center;
+  margin-block: ${spacing.medium};
 `
 
 export const CardRating = styled.div`
