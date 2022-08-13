@@ -1,93 +1,168 @@
-<!-- https://medium.com/@nehrwein/conditional-styling-with-styled-components-in-react-c26bd9f0db88 -->
-<!-- Please update value in the {}  -->
+# Frontend Mentor - Order summary card solution
 
-<h1 align="center">{Your project name}</h1>
+![Preview Design](https://user-images.githubusercontent.com/57645180/184495602-902a597f-e24a-44ca-a0be-edbd153e624c.png)
 
-<div align="center">
-   Solution for a challenge from  <a href="http://devchallenges.io" target="_blank">Devchallenges.io</a>.
-</div>
+This is a solution of windbnb challenge from [Dev Challenges](http://devchallenges.io).
 
-<div align="center">
-  <h3>
-    <a href="https://{your-demo-link.your-domain}">
-      Demo
-    </a>
-    <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
-      Solution
-    </a>
-    <span> | </span>
-    <a href="https://devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD">
-      Challenge
-    </a>
-  </h3>
-</div>
-
-<!-- TABLE OF CONTENTS -->
-
-## Table of Contents
+## Table of contents
 
 - [Overview](#overview)
-  - [Built With](#built-with)
-- [Features](#features)
-- [How to use](#how-to-use)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
-
-<!-- OVERVIEW -->
+  - [The challenge](#the-challenge)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Installation](#installation)
 
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+### The challenge
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
+Users should be able to:
 
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+- See a list of properties
+- See the property card with a name, rating, apartment type, and super host
+- Open the filter drawer
+- Filter properties by location and number of guests
+- See the number of filtered items
+- See pages following given designs
 
-### Built With
+### Links
 
-<!-- This section should list any major frameworks that you built your project using. Here are a few examples.-->
+- Live Demo: [Demo](https://reactbnb.netlify.app/)
 
-- [React](https://reactjs.org/)
-- [Vue.js](https://vuejs.org/)
-- [Tailwind](https://tailwindcss.com/)
+## My process
 
-## Features
+### Built with
 
-<!-- List the features of your application or follow the template. Don't share the figma file here :) -->
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- JavaScript ES6+
+- [React](https://reactjs.org/) - JS library
+- [Styled Components](https://styled-components.com/) - For styles
+- [Vite](https://vitejs.dev/) - Bundle tool
+- [Standard](https://standardjs.com/) - Linter
+- [React Icons](https://react-icons.github.io/react-icons) - Icons library
 
-This application/site was created as a submission to a [DevChallenges](https://devchallenges.io/challenges) challenge. The [challenge](https://devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD) was to build an application to complete the given user stories.
+### What I learned
 
-## How To Use
+This was an interesting challenge to practice with React.
 
-<!-- Example: -->
+Implemented `customs hooks` to improve readability of components
+```js
+// With this hook a can create specific filters and update them individually
+export const useFilter = (state = initialState) => {
+  const [filters, setFilters] = useState(state)
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+  const addLocation = (location) => setFilters(prev => ({
+    ...prev,
+    location
+  }))
 
-```bash
-# Clone this repository
-$ git clone https://github.com/your-user-name/your-project-name
+  const addGuests = (guests) => setFilters(prev => ({
+    ...prev,
+    guests
+  }))
 
-# Install dependencies
-$ npm install
+  return {
+    filters,
+    addLocation,
+    addGuests
+  }
+}
 
-# Run the app
-$ npm start
+// Usage
+const {filters: filterName, addLocation: addNameLocation, addGuest: addNameGuests} = useFilter(initialState)
 ```
 
-## Acknowledgements
+Followed component composition pattern to spread the data across the app without the use of `useContext` hook
 
-<!-- This section should list any articles or add-ons/plugins that helps you to complete the project. This is optional but it will help you in the future. For example: -->
+```js
+// FilterList/index.jsx
+export const FilterList = ({ children, filter, activeTab }) => {
+  const isActive = filter === activeTab
+  return (
+    <StyledList isActive={isActive}>
+      {children}
+    </StyledList>
+  )
+}
+// Modal/index.jsx
+<FilterList filter='location' activeTab={activeTab}>
+  {
+    locations.map(location => {
+      const [city, country] = location.split(', ')
+      return (
+        <LocationItem
+          key={city}
+          location={{ city, country }}
+          setSelectedLocation={setSelectedLocation}
+        />
+      )
+    })
+  }
+</FilterList>
+```
+Added a service to handle the data output depending on the filters applied 
+```js
+export const getFilteredData = (filters, array) => {
+  const { location, guests } = filters
 
-- [Steps to replicate a design with only HTML and CSS](https://devchallenges-blogs.web.app/how-to-replicate-design/)
-- [Node.js](https://nodejs.org/)
-- [Marked - a markdown parser](https://github.com/chjj/marked)
+  let filteredData = array
 
-## Contact
+  if (location && guests) {
+    //Filter by location and guests
+  } else if (location) {
+    //Filter only by location
+  } else if (guests) {
+    //Filter only by guests
+  }
 
-- Website [your-website.com](https://{your-web-site-link})
-- GitHub [@your-username](https://{github.com/your-usermame})
-- Twitter [@your-twitter](https://{twitter.com/your-username})
+  return filteredData
+}
+```
+
+Used this cool trick to remove the duplicated locations from the data file with only two lines
+```js
+const rawLocations = data.map(({ city, country }) => (`${city}, ${country}`))
+const locations = [...new Set(rawLocations)]
+```
+### Useful resources
+
+- [Styled Components docs](https://styled-components.com/docs) - The official documentation of styled components, this resource was very useful to understand this package.
+
+- [Conditional styled components article](https://medium.com/@nehrwein/conditional-styling-with-styled-components-in-react-c26bd9f0db88) - This is a great article to understand the basis on condition handling with styled component. Helped me a lot with this project.
+
+## Author
+
+- Dev Challenges - [@cacosted](https://devchallenges.io/portfolio/cacosted)
+- Twitter - [@cacosted](https://www.twitter.com/cacosted)
+
+## Installation
+
+To test this project by yourself first clone the repository, then you can use this commands:
+
+Install project
+```
+npm install
+```
+
+Run local server
+```
+npm run dev
+```
+
+Build project
+```
+npm run build
+```
+
+Preview Build
+```
+npm run preview
+```

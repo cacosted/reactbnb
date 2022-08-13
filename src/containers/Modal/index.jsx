@@ -88,8 +88,7 @@ export const Modal = ({ activeModal, setActiveModal, addCardLocation, addCardGue
                       setSelectedLocation={setSelectedLocation}
                     />
                   )
-                }
-                )
+                })
               }
             </FilterList>
           </SearchField>
