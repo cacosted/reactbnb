@@ -1,4 +1,4 @@
-# Frontend Mentor - Order summary card solution
+# Reactbnb - airbnb's UI clone
 
 ![Preview Design](https://user-images.githubusercontent.com/57645180/184495602-902a597f-e24a-44ca-a0be-edbd153e624c.png)
 
